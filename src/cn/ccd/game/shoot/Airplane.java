@@ -3,69 +3,69 @@ package cn.ccd.game.shoot;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
-/**Ğ¡µĞ»ú*/
+/**å°æ•Œæœº*/
 public class Airplane extends FlyingObject implements Enemy{
 
-	private int xSpeed;	//Ğ¡µĞ»úXÖáµÄÒÆ¶¯ËÙ
-	private int ySpeed;	//Ğ¡µĞ»úYÖáµÄÒÆ¶¯ËÙ
-	private int ranX;	//ÒÆ¶¯·½ÏòÖ¸Ê¾Æ÷
+	private int xSpeed;	//å°æ•ŒæœºXè½´çš„ç§»åŠ¨é€Ÿ
+	private int ySpeed;	//å°æ•ŒæœºYè½´çš„ç§»åŠ¨é€Ÿ
+	private int ranX;	//ç§»åŠ¨æ–¹å‘æŒ‡ç¤ºå™¨
 	
-	/*Ğ¡µĞ»ú¹¹ÔìÆ÷*/
+	/*å°æ•Œæœºæ„é€ å™¨*/
 	public Airplane() {
 		
-		super(49, 36);	//Ğ¡µĞ»úÊı¾İ³õÊ¼»¯
-		Random ran = new Random();	//ÉêÇëËæ»úÈ¨ÏŞ
-		ranX = ran.nextInt(2);	//ÉèÖÃËæ»úÒÆ¶¯·½Ïò
-		this.xSpeed = 1;	//Ğ¡µĞ»úXÖáµÄÒÆ¶¯ËÙ³õÊ¼»¯
-		this.ySpeed = 2;	//Ğ¡µĞ»úYÖáµÄÒÆ¶¯ËÙ³õÊ¼»¯
+		super(49, 36);	//å°æ•Œæœºæ•°æ®åˆå§‹åŒ–
+		Random ran = new Random();	//ç”³è¯·éšæœºæƒé™
+		ranX = ran.nextInt(2);	//è®¾ç½®éšæœºç§»åŠ¨æ–¹å‘
+		this.xSpeed = 1;	//å°æ•ŒæœºXè½´çš„ç§»åŠ¨é€Ÿåˆå§‹åŒ–
+		this.ySpeed = 2;	//å°æ•ŒæœºYè½´çš„ç§»åŠ¨é€Ÿåˆå§‹åŒ–
 	}
 	
-	/*ÖØĞ´³¬Àà·½·¨£¬Ğ¡µĞ»úÒÆ¶¯·½·¨*/
+	/*é‡å†™è¶…ç±»æ–¹æ³•ï¼Œå°æ•Œæœºç§»åŠ¨æ–¹æ³•*/
 	public void step() {
 
-		if(ranX == 0) {	//ÅĞ¶Ï³õÊ¼ÒÆ¶¯·½Ïò
+		if(ranX == 0) {	//åˆ¤æ–­åˆå§‹ç§»åŠ¨æ–¹å‘
 			
-			this.x += this.xSpeed;	//Ğ¡µĞ»úÏòÓÒÒÆ¶¯
+			this.x += this.xSpeed;	//å°æ•Œæœºå‘å³ç§»åŠ¨
 			
 		}else {
 			
-			this.x -= this.xSpeed;	//Ğ¡µĞ»úÏò×óÒÆ¶¯
+			this.x -= this.xSpeed;	//å°æ•Œæœºå‘å·¦ç§»åŠ¨
 			
 		}
-		this.y += this.ySpeed;	//Ğ¡µĞ»ú¸ù¾İÒÆ¶¯ËÙ¶ÈÏòÏÂÒÆ¶¯
+		this.y += this.ySpeed;	//å°æ•Œæœºæ ¹æ®ç§»åŠ¨é€Ÿåº¦å‘ä¸‹ç§»åŠ¨
 		
-		/*ÅĞ¶ÏĞ¡µĞ»úÊÇ·ñÅöµ½´°¿Ú±ßÔµ*/
+		/*åˆ¤æ–­å°æ•Œæœºæ˜¯å¦ç¢°åˆ°çª—å£è¾¹ç¼˜*/
 		if(this.x <= 0 || this.x >= World.WIDTH - this.width) {
 			
-			this.xSpeed *= -1;	//½«xÖáÒÆ¶¯·½ÏòÉèÖÃÎª·´·½Ïò
+			this.xSpeed *= -1;	//å°†xè½´ç§»åŠ¨æ–¹å‘è®¾ç½®ä¸ºåæ–¹å‘
 			
 		}
 		
 	}
 	
-	private int index = 1;//¸øgetImages·½·¨Ê¹ÓÃµÄ±äÁ¿
-	/*ÖØĞ´³¬Àà·½·¨£¬»ñÈ¡Ğ¡µĞ»úÍ¼Æ¬*/
+	private int index = 1;//ç»™getImagesæ–¹æ³•ä½¿ç”¨çš„å˜é‡
+	/*é‡å†™è¶…ç±»æ–¹æ³•ï¼Œè·å–å°æ•Œæœºå›¾ç‰‡*/
 	public BufferedImage getImages() {
 
-		if(isLife()) {	//ÅĞ¶ÏÈô»î×ÅµÄ£¬Ö±½Ó·µ»Øairplanes[0]¼´¿É
+		if(isLife()) {	//åˆ¤æ–­è‹¥æ´»ç€çš„ï¼Œç›´æ¥è¿”å›airplanes[0]å³å¯
 			
-			return Images.airplanes[0];		//¼ÓÔØImagesÀàÖĞ¶ÁÈ¡µ½µÄĞ¡µĞ»úÍ¼Æ¬
+			return Images.airplanes[0];		//åŠ è½½Imagesç±»ä¸­è¯»å–åˆ°çš„å°æ•Œæœºå›¾ç‰‡
 			
-		}else if(isDead()) {	//ÈôËÀÁË£¬·µ»Ø±¬Õ¨Í¼Æ¬1-4£¬µÚ4ÕÅºó·µ»Ø¿ÕÍ¼Æ¬
+		}else if(isDead()) {	//è‹¥æ­»äº†ï¼Œè¿”å›çˆ†ç‚¸å›¾ç‰‡1-4ï¼Œç¬¬4å¼ åè¿”å›ç©ºå›¾ç‰‡
 			
-			BufferedImage img = Images.airplanes[index++];	//¼ÓÔØImagesÀàÖĞ¶ÁÈ¡µ½µÄ±¬Õ¨Í¼Æ¬£¬index = 1.2.3.4
-			if(index == Images.airplanes.length) {	//index = 2.3.4.5£¬µ±Ëûµ½5Ê±½«state×´Ì¬ÉèÖÃÎªREMOVE£¬ÕâÑùÏÂ´Î¾Í²»»á½øÈëµ½´ËifÖĞ
+			BufferedImage img = Images.airplanes[index++];	//åŠ è½½Imagesç±»ä¸­è¯»å–åˆ°çš„çˆ†ç‚¸å›¾ç‰‡ï¼Œindex = 1.2.3.4
+			if(index == Images.airplanes.length) {	//index = 2.3.4.5ï¼Œå½“ä»–åˆ°5æ—¶å°†stateçŠ¶æ€è®¾ç½®ä¸ºREMOVEï¼Œè¿™æ ·ä¸‹æ¬¡å°±ä¸ä¼šè¿›å…¥åˆ°æ­¤ifä¸­
 				state = REMOVE;
 			}
-			return img;	//·µ»Ø±¬Õ¨Í¼Æ¬1-4
+			return img;	//è¿”å›çˆ†ç‚¸å›¾ç‰‡1-4
 			
 		}
 		
-		return null;	//·µ»Ø¿ÕÍ¼Æ¬
+		return null;	//è¿”å›ç©ºå›¾ç‰‡
 		
 	}
 
-	/*·µ»ØµÃ·Ö*/
+	/*è¿”å›å¾—åˆ†*/
 	public int getScore() {
 		
 		return 1;

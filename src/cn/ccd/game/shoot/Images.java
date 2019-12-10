@@ -5,60 +5,60 @@ import javax.imageio.ImageIO;
 
 public class Images{
 
-	public static BufferedImage sky;	//ÉùÃ÷Ìì¿Õ±³¾°Í¼Æ¬ÒıÓÃ
-	public static BufferedImage bullet;	//ÉùÃ÷×Óµ¯Í¼Æ¬ÒıÓÃ
-	public static BufferedImage[] heros;	//ÉùÃ÷Ó¢ĞÛ»úÍ¼Æ¬ÒıÓÃ
-	public static BufferedImage[] airplanes;	//ÉùÃ÷Ğ¡µĞ»úÍ¼Æ¬ÒıÓÃ
-	public static BufferedImage[] bigAirplanes;	//ÉùÃ÷´óµĞ»úÍ¼Æ¬ÒıÓÃ
-	public static BufferedImage[] bees;	//ÉùÃ÷Ğ¡ÃÛ·ä(½±Àø»ú)Í¼Æ¬ÒıÓÃ
-	public static BufferedImage start;	//ÉùÃ÷ÓÎÏ·Æô¶¯Ê±µÄÍ¼Æ¬ÒıÓÃ
-	public static BufferedImage pause;	//ÉùÃ÷ÓÎÏ·ÔİÍ£Ê±µÄÍ¼Æ¬ÒıÓÃ
-	public static BufferedImage gameOver;	//ÉùÃ÷ÓÎÏ·½áÊøÊ±µÄÍ¼Æ¬ÒıÓÃ
+	public static BufferedImage sky;	//å£°æ˜å¤©ç©ºèƒŒæ™¯å›¾ç‰‡å¼•ç”¨
+	public static BufferedImage bullet;	//å£°æ˜å­å¼¹å›¾ç‰‡å¼•ç”¨
+	public static BufferedImage[] heros;	//å£°æ˜è‹±é›„æœºå›¾ç‰‡å¼•ç”¨
+	public static BufferedImage[] airplanes;	//å£°æ˜å°æ•Œæœºå›¾ç‰‡å¼•ç”¨
+	public static BufferedImage[] bigAirplanes;	//å£°æ˜å¤§æ•Œæœºå›¾ç‰‡å¼•ç”¨
+	public static BufferedImage[] bees;	//å£°æ˜å°èœœèœ‚(å¥–åŠ±æœº)å›¾ç‰‡å¼•ç”¨
+	public static BufferedImage start;	//å£°æ˜æ¸¸æˆå¯åŠ¨æ—¶çš„å›¾ç‰‡å¼•ç”¨
+	public static BufferedImage pause;	//å£°æ˜æ¸¸æˆæš‚åœæ—¶çš„å›¾ç‰‡å¼•ç”¨
+	public static BufferedImage gameOver;	//å£°æ˜æ¸¸æˆç»“æŸæ—¶çš„å›¾ç‰‡å¼•ç”¨
 
-	/*Éè¼Æ¾²Ì¬¿é¼ÓÔØÍ¼Æ¬*/
+	/*è®¾è®¡é™æ€å—åŠ è½½å›¾ç‰‡*/
 	static {
 
-		sky = loadImage("background.png");	//¶ÁÈ¡Ìì¿ÕÍ¼Æ¬
-		bullet = loadImage("bullet.png");	//¶ÁÈ¡×Óµ¯Í¼Æ¬
+		sky = loadImage("background.png");	//è¯»å–å¤©ç©ºå›¾ç‰‡
+		bullet = loadImage("bullet.png");	//è¯»å–å­å¼¹å›¾ç‰‡
 
-		heros = new BufferedImage[] {	//¶ÁÈ¡Ó¢ĞÛ»úÍ¼Æ¬
-				loadImage("hero0.png"),	//Ó¢ĞÛ»úÍ¼Æ¬1
-				loadImage("hero1.png"),	//Ó¢ĞÛ»úÍ¼Æ¬2
+		heros = new BufferedImage[] {	//è¯»å–è‹±é›„æœºå›¾ç‰‡
+				loadImage("hero0.png"),	//è‹±é›„æœºå›¾ç‰‡1
+				loadImage("hero1.png"),	//è‹±é›„æœºå›¾ç‰‡2
 		};
 
-		/*ÓÉÓÚµĞ»úÍ¼Æ¬ÊıÁ¿½Ï¶à(ÒòÎª°üº¬±¬Õ¨Í¼Æ¬¶¼ÖÁÉÙ5ÕÅ)£¬ËùÒÔÉèÖÃ³ÉÊı×é*/
+		/*ç”±äºæ•Œæœºå›¾ç‰‡æ•°é‡è¾ƒå¤š(å› ä¸ºåŒ…å«çˆ†ç‚¸å›¾ç‰‡éƒ½è‡³å°‘5å¼ )ï¼Œæ‰€ä»¥è®¾ç½®æˆæ•°ç»„*/
 		airplanes = new BufferedImage[5];	
 		bigAirplanes = new BufferedImage[5];	
 		bees = new BufferedImage[5];
 
-		/*¼ÓÔØ¸÷µĞ»úÖÖËù¶ÔÓ¦Í¼Æ¬*/
+		/*åŠ è½½å„æ•Œæœºç§æ‰€å¯¹åº”å›¾ç‰‡*/
 		airplanes[0] = loadImage("airplane.png");
 		bigAirplanes[0] = loadImage("bigplane.png");
 		bees[0] = loadImage("bee.png");
 
-		/*¼ÓÔØÍêºóÓÉÓÚ±¬Õ¨Í¼Æ¬¶¼ÊÇÒ»ÑùµÄ¾ÍÉè¼ÆÒ»¸öÑ­»·À´¿ì½İ¶ÁÈ¡*/
+		/*åŠ è½½å®Œåç”±äºçˆ†ç‚¸å›¾ç‰‡éƒ½æ˜¯ä¸€æ ·çš„å°±è®¾è®¡ä¸€ä¸ªå¾ªç¯æ¥å¿«æ·è¯»å–*/
 		for(int i = 1, j = 0; i < airplanes.length; i++, j++){
 			
-			//Ã¿ÖÖµĞ»ú¶¼¼ÓÔØ4ÕÅ±¬Õ¨Í¼Æ¬´æµ½Êı×éÖĞ
+			//æ¯ç§æ•Œæœºéƒ½åŠ è½½4å¼ çˆ†ç‚¸å›¾ç‰‡å­˜åˆ°æ•°ç»„ä¸­
 			airplanes[i] = loadImage("airplane_ember"+j+".png");
 			bigAirplanes[i] = loadImage("bigplane_ember"+j+".png");
 			bees[i] = loadImage("bee_ember"+j+".png");
 
 		}
 		
-		/*¶ÁÈ¡ÓÎÏ·×´Ì¬Í¼Æ¬*/
+		/*è¯»å–æ¸¸æˆçŠ¶æ€å›¾ç‰‡*/
 		start = loadImage("start.png");
 		pause = loadImage("pause.png");
 		gameOver = loadImage("gameover.png");
 
 	}
 
-	/*¶ÁÈ¡Í¼Æ¬·½·¨	¡¾***¡¿*/
+	/*è¯»å–å›¾ç‰‡æ–¹æ³•	ã€***ã€‘*/
 	public static BufferedImage loadImage(String fileName){
 
 		try{
 
-			BufferedImage img = ImageIO.read(FlyingObject.class.getResource(fileName));	//ÔÚÍ¬°üÖĞ¶ÁÈ¡Í¼Æ¬
+			BufferedImage img = ImageIO.read(FlyingObject.class.getResource(fileName));	//åœ¨åŒåŒ…ä¸­è¯»å–å›¾ç‰‡
 			return img;
 
 		}catch(Exception e){

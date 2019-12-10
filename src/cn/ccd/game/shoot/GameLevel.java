@@ -1,6 +1,6 @@
 package cn.ccd.game.shoot;
 
-/**游戏难度接口*/
+/**娓告垙闅惧害鎺ュ彛*/
 public interface GameLevel {
 	
 	public static final int LEVEL_1 = 1;

@@ -2,87 +2,87 @@ package cn.ccd.game.shoot;
 
 import java.awt.image.BufferedImage;
 
-/**Ó¢ĞÛ»ú*/
+/**è‹±é›„æœº*/
 public class Hero extends FlyingObject{
 
-	private int life;	//ÉúÃüÊıÁ¿
-	private int doubleFire;	//Ë«±¶»ğÁ¦Öµ
-	private int superFire;	//³¬¼¶»ğÁ¦Öµ
+	private int life;	//ç”Ÿå‘½æ•°é‡
+	private int doubleFire;	//åŒå€ç«åŠ›å€¼
+	private int superFire;	//è¶…çº§ç«åŠ›å€¼
 
-	/*Ó¢ĞÛ»ú¹¹ÔìÆ÷*/
+	/*è‹±é›„æœºæ„é€ å™¨*/
 	public Hero() {
 
-		super(97, 124, World.WIDTH/2-97/2, World.HEIGHT-300);	//Ó¢ĞÛ»úÊı¾İ³õÊ¼»¯
-		this.life = 3;	//ÉèÖÃÄ¬ÈÏÉúÃüÊı3Ìõ
-		this.doubleFire = 0;	//ÉèÖÃË«±¶»ğÁ¦Öµ³õÊ¼Öµ0
-		this.superFire = 0;	//ÉèÖÃ³¬¼¶»ğÁ¦Öµ³õÊ¼Öµ0
+		super(97, 124, World.WIDTH/2-97/2, World.HEIGHT-300);	//è‹±é›„æœºæ•°æ®åˆå§‹åŒ–
+		this.life = 3;	//è®¾ç½®é»˜è®¤ç”Ÿå‘½æ•°3æ¡
+		this.doubleFire = 0;	//è®¾ç½®åŒå€ç«åŠ›å€¼åˆå§‹å€¼0
+		this.superFire = 0;	//è®¾ç½®è¶…çº§ç«åŠ›å€¼åˆå§‹å€¼0
 
 	}
 
-	/*Ó¢ĞÛ»ú¸úËæÊó±êÒÆ¶¯	¡¾***¡¿*/
+	/*è‹±é›„æœºè·Ÿéšé¼ æ ‡ç§»åŠ¨	ã€***ã€‘*/
 	public void moveTo(int x, int y) {
 
-		//Éè¶¨Ó¢ĞÛ»úÖĞĞÄµãËæ×ÅÊó±êÒÆ¶¯
+		//è®¾å®šè‹±é›„æœºä¸­å¿ƒç‚¹éšç€é¼ æ ‡ç§»åŠ¨
 		this.x = x - this.width/2;
 		this.y = y - this.height/2;
 
 	}
 
-	/*ÖØĞ´³¬Àà·½·¨£¬Ó¢ĞÛ»úÒÆ¶¯·½·¨*/
+	/*é‡å†™è¶…ç±»æ–¹æ³•ï¼Œè‹±é›„æœºç§»åŠ¨æ–¹æ³•*/
 	public void step() {
-		//ÓÉÓÚÓ¢ĞÛ»úÊÇ¸ù¾İÊó±êÒÆ¶¯µÄËùÒÔÎŞĞèÌîĞ´ÒÆ¶¯·½·¨£¬µ«ÊÇ²»ÄÜÉ¾³ı¸Ã·½·¨£¬Ô­ÒòÊÇÒòÎª³¬ÀàÖĞÓĞ¸Ã·½·¨£¬²»ÖØĞ´»á±àÒë´íÎó
+		//ç”±äºè‹±é›„æœºæ˜¯æ ¹æ®é¼ æ ‡ç§»åŠ¨çš„æ‰€ä»¥æ— éœ€å¡«å†™ç§»åŠ¨æ–¹æ³•ï¼Œä½†æ˜¯ä¸èƒ½åˆ é™¤è¯¥æ–¹æ³•ï¼ŒåŸå› æ˜¯å› ä¸ºè¶…ç±»ä¸­æœ‰è¯¥æ–¹æ³•ï¼Œä¸é‡å†™ä¼šç¼–è¯‘é”™è¯¯
 	}
 
-	private int index = 0;	//¸øgetImages·½·¨Ê¹ÓÃµÄ±äÁ¿
-	/*ÖØĞ´³¬Àà·½·¨£¬»ñÈ¡Ó¢ĞÛ»úÍ¼Æ¬*/
+	private int index = 0;	//ç»™getImagesæ–¹æ³•ä½¿ç”¨çš„å˜é‡
+	/*é‡å†™è¶…ç±»æ–¹æ³•ï¼Œè·å–è‹±é›„æœºå›¾ç‰‡*/
 	public BufferedImage getImages() {
 
-		return Images.heros[index++ % Images.heros.length];	//¼ÓÔØImagesÀàÖĞ¶ÁÈ¡µ½µÄÓ¢ĞÛ»úÍ¼Æ¬
+		return Images.heros[index++ % Images.heros.length];	//åŠ è½½Imagesç±»ä¸­è¯»å–åˆ°çš„è‹±é›„æœºå›¾ç‰‡
 
 	}
 
-	/*Éú³É×Óµ¯·½·¨*/
+	/*ç”Ÿæˆå­å¼¹æ–¹æ³•*/
 	public Bullet[] generateTheBullet(){
 
-		int x = this.width/4;	//¹Ì¶¨×Óµ¯Î»ÖÃ£¬ÈÃ×Óµ¯³öÏÖÔÚÓ¢ĞÛ»ú¿íµÄ1/4Î»ÖÃ
-		if(this.superFire != 0) {	//¼ì²â³¬¼¶»ğÁ¦Öµ£¬Èç¹û»ğÁ¦Öµ²»Îª0
+		int x = this.width/4;	//å›ºå®šå­å¼¹ä½ç½®ï¼Œè®©å­å¼¹å‡ºç°åœ¨è‹±é›„æœºå®½çš„1/4ä½ç½®
+		if(this.superFire != 0) {	//æ£€æµ‹è¶…çº§ç«åŠ›å€¼ï¼Œå¦‚æœç«åŠ›å€¼ä¸ä¸º0
 			
-			Bullet[] tempBullet = new Bullet[World.WIDTH];	//´´½¨Ò»¸öBulletÀàĞÍµÄÁÙÊ±Êı×étempBullet£¬ÓÉÓÚÊÇ³¬¼¶»ğÁ¦£¬ËùÒÔÊı×é³¤¶ÈÉèÖÃÎª´°¿Ú³¤¶È
-			for(int i = 0, j = 0; i < tempBullet.length; i++, j+=10) {	//´´½¨Õâ¸öÊı×é
+			Bullet[] tempBullet = new Bullet[World.WIDTH];	//åˆ›å»ºä¸€ä¸ªBulletç±»å‹çš„ä¸´æ—¶æ•°ç»„tempBulletï¼Œç”±äºæ˜¯è¶…çº§ç«åŠ›ï¼Œæ‰€ä»¥æ•°ç»„é•¿åº¦è®¾ç½®ä¸ºçª—å£é•¿åº¦
+			for(int i = 0, j = 0; i < tempBullet.length; i++, j+=10) {	//åˆ›å»ºè¿™ä¸ªæ•°ç»„
 				
-				tempBullet[i] = new Bullet(j, World.HEIGHT);	//´´½¨Õâ¸öÊı×é
+				tempBullet[i] = new Bullet(j, World.HEIGHT);	//åˆ›å»ºè¿™ä¸ªæ•°ç»„
 				
 			}
-			this.superFire = 0;	//ÖØÖÃ³¬¼¶»ğÁ¦Öµ
-			return tempBullet;	//·µ»ØÕâ¸öÊı×é
+			this.superFire = 0;	//é‡ç½®è¶…çº§ç«åŠ›å€¼
+			return tempBullet;	//è¿”å›è¿™ä¸ªæ•°ç»„
 			
-		}else if(doubleFire <= 0) {	//¼ì²â»ğÁ¦Öµ£¬Èç¹û»ğÁ¦ÖµÎª0ÔòÎªµ¥±¶»ğÁ¦
+		}else if(doubleFire <= 0) {	//æ£€æµ‹ç«åŠ›å€¼ï¼Œå¦‚æœç«åŠ›å€¼ä¸º0åˆ™ä¸ºå•å€ç«åŠ›
 
-			Bullet[] tempBullet = new Bullet[1];	//´´½¨Ò»¸öBulletÀàĞÍµÄÁÙÊ±Êı×étempBullet£¬ÓÉÓÚÊÇµ¥±¶»ğÁ¦£¬ËùÒÔÊı×é³¤¶ÈÉèÖÃÎª1
-			tempBullet[0] = new Bullet(this.x + x * 2, this.y);	//newÒ»¸öĞÂµÄBullet¶ÔÏó´æµ½tempBullet[0]ÖĞ£¬×Óµ¯Î»ÖÃÉè¶¨ÔÚÓ¢ĞÛ»úµÄÖĞ¼ä²¿·Ö
-			return tempBullet;	//·µ»ØÕâ¸öÊı×é
+			Bullet[] tempBullet = new Bullet[1];	//åˆ›å»ºä¸€ä¸ªBulletç±»å‹çš„ä¸´æ—¶æ•°ç»„tempBulletï¼Œç”±äºæ˜¯å•å€ç«åŠ›ï¼Œæ‰€ä»¥æ•°ç»„é•¿åº¦è®¾ç½®ä¸º1
+			tempBullet[0] = new Bullet(this.x + x * 2, this.y);	//newä¸€ä¸ªæ–°çš„Bulletå¯¹è±¡å­˜åˆ°tempBullet[0]ä¸­ï¼Œå­å¼¹ä½ç½®è®¾å®šåœ¨è‹±é›„æœºçš„ä¸­é—´éƒ¨åˆ†
+			return tempBullet;	//è¿”å›è¿™ä¸ªæ•°ç»„
 
-		}else {	//¼ì²â»ğÁ¦Öµ£¬Èç¹û»ğÁ¦Öµ´óÓÚÔòÎªË«±¶»ğÁ¦
+		}else {	//æ£€æµ‹ç«åŠ›å€¼ï¼Œå¦‚æœç«åŠ›å€¼å¤§äºåˆ™ä¸ºåŒå€ç«åŠ›
 
-			Bullet[] tempBullet = new Bullet[2];	//´´½¨Ò»¸öBulletÀàĞÍµÄÁÙÊ±Êı×étempBullet£¬ÓÉÓÚÊÇË«±¶»ğÁ¦£¬ËùÒÔÊı×é³¤¶ÈÉèÖÃÎª2
-			//newÁ½¸öĞÂµÄBullet¶ÔÏó·Ö±ğ´æµ½tempBulletµÄ[0]ºÍ[1]ÖĞ£¬×Óµ¯Î»ÖÃÉè¶¨ÔÚÓ¢ĞÛ»úµÄ×óÓÒÁ½±ß
+			Bullet[] tempBullet = new Bullet[2];	//åˆ›å»ºä¸€ä¸ªBulletç±»å‹çš„ä¸´æ—¶æ•°ç»„tempBulletï¼Œç”±äºæ˜¯åŒå€ç«åŠ›ï¼Œæ‰€ä»¥æ•°ç»„é•¿åº¦è®¾ç½®ä¸º2
+			//newä¸¤ä¸ªæ–°çš„Bulletå¯¹è±¡åˆ†åˆ«å­˜åˆ°tempBulletçš„[0]å’Œ[1]ä¸­ï¼Œå­å¼¹ä½ç½®è®¾å®šåœ¨è‹±é›„æœºçš„å·¦å³ä¸¤è¾¹
 			tempBullet[0] = new Bullet(this.x + x, this.y);
 			tempBullet[1] = new Bullet(this.x + x * 3, this.y);
-			doubleFire -= 2;	//Ã¿·¢ÉäÒ»´ÎË«±¶»ğÁ¦¾Í¼õÉÙÒ»´ÎË«±¶»ğÁ¦Öµ
-			return tempBullet;	//·µ»ØÕâ¸öÊı×é
+			doubleFire -= 2;	//æ¯å‘å°„ä¸€æ¬¡åŒå€ç«åŠ›å°±å‡å°‘ä¸€æ¬¡åŒå€ç«åŠ›å€¼
+			return tempBullet;	//è¿”å›è¿™ä¸ªæ•°ç»„
 
 		}
 		
 	}
 
-	/*Ôö¼ÓÉúÃüÊı*/
+	/*å¢åŠ ç”Ÿå‘½æ•°*/
 	public void addLife() {
 
 		this.life++;
 
 	}
 
-	/*¼õÉÙÉúÃüÊı*/
+	/*å‡å°‘ç”Ÿå‘½æ•°*/
 	public void subtractLife() {
 
 		if(this.life > 0) {
@@ -93,50 +93,50 @@ public class Hero extends FlyingObject{
 
 	}
 
-	/*»ñµÃ»ğÁ¦Öµ*/
+	/*è·å¾—ç«åŠ›å€¼*/
 	public void addDoubleFire() {
 
 		this.doubleFire += 40;
 
 	}
 
-	/*Çå¿Õ»ğÁ¦Öµ*/
+	/*æ¸…ç©ºç«åŠ›å€¼*/
 	public void clearDoubleFire() {
 
 		this.doubleFire = 0;
 
 	}
 
-	/*»ñÈ¡µ±Ç°ÉúÃüÖµ*/
+	/*è·å–å½“å‰ç”Ÿå‘½å€¼*/
 	public int getLife() {
 
 		return this.life;
 
 	}
 
-	/*»ñÈ¡µ±Ç°»ğÁ¦Öµ×´Ì¬*/
+	/*è·å–å½“å‰ç«åŠ›å€¼çŠ¶æ€*/
 	public String getDoubleFire() {
 
 		if(doubleFire > 0) {
 
-			return "Ë«±¶»ğÁ¦";
+			return "åŒå€ç«åŠ›";
 
 		}else {
 
-			return "µ¥±¶»ğÁ¦";
+			return "å•å€ç«åŠ›";
 
 		}
 
 	}
 
-	/*»ñÈ¡µ±Ç°»ğÁ¦Öµ*/
+	/*è·å–å½“å‰ç«åŠ›å€¼*/
 	public int getDoubleFireNum() {
 
 		return doubleFire;
 
 	}
 	
-	/*»ñµÃ³¬¼¶»ğÁ¦Öµ*/
+	/*è·å¾—è¶…çº§ç«åŠ›å€¼*/
 	public void addSuperFire() {
 		
 		this.superFire++;

@@ -3,72 +3,72 @@ package cn.ccd.game.shoot;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
-/**Ğ¡ÃÛ·ä(½±Àø»ú)*/
+/**å°èœœèœ‚(å¥–åŠ±æœº)*/
 public class Bee extends FlyingObject implements Award{
 	
-	private int xSpeed;	//Ğ¡ÃÛ·äÒòÎª»á×óÓÒÒÆ¶¯£¬ËùÒÔÓĞÁ½¸öÒÆ¶¯ËÙ¶È£¬Õâ¸öÊÇXÖáµÄÒÆ¶¯ËÙ¶È
-	private int ySpeed;	//Õâ¸öÊÇYÖáµÄÒÆ¶¯ËÙ¶È
-	private int ranX;	//ÒÆ¶¯·½ÏòÖ¸Ê¾Æ÷
-	private int awardType;	//½±ÀøÖµ
+	private int xSpeed;	//å°èœœèœ‚å› ä¸ºä¼šå·¦å³ç§»åŠ¨ï¼Œæ‰€ä»¥æœ‰ä¸¤ä¸ªç§»åŠ¨é€Ÿåº¦ï¼Œè¿™ä¸ªæ˜¯Xè½´çš„ç§»åŠ¨é€Ÿåº¦
+	private int ySpeed;	//è¿™ä¸ªæ˜¯Yè½´çš„ç§»åŠ¨é€Ÿåº¦
+	private int ranX;	//ç§»åŠ¨æ–¹å‘æŒ‡ç¤ºå™¨
+	private int awardType;	//å¥–åŠ±å€¼
 	
-	/*Ğ¡ÃÛ·ä(½±Àø»ú)¹¹ÔìÆ÷*/
+	/*å°èœœèœ‚(å¥–åŠ±æœº)æ„é€ å™¨*/
 	public Bee() {
 		
-		super(60, 50);	//Ğ¡ÃÛ·äÊı¾İ³õÊ¼»¯
-		Random ran = new Random();	//ÉêÇëËæ»úÈ¨ÏŞ
-		ranX = ran.nextInt(2);	//ÉèÖÃËæ»úÒÆ¶¯·½Ïò
-		this.xSpeed = 2;	//Ğ¡ÃÛ·äXÖáµÄÒÆ¶¯ËÙ¶È³õÊ¼»¯
-		this.ySpeed = 2;	//Ğ¡ÃÛ·äYÖáµÄÒÆ¶¯ËÙ¶È³õÊ¼»¯
-		this.awardType = ran.nextInt(101);	//½«awardTypeµÄÖµËæ»ú¸³ÖµÎª0~100
+		super(60, 50);	//å°èœœèœ‚æ•°æ®åˆå§‹åŒ–
+		Random ran = new Random();	//ç”³è¯·éšæœºæƒé™
+		ranX = ran.nextInt(2);	//è®¾ç½®éšæœºç§»åŠ¨æ–¹å‘
+		this.xSpeed = 2;	//å°èœœèœ‚Xè½´çš„ç§»åŠ¨é€Ÿåº¦åˆå§‹åŒ–
+		this.ySpeed = 2;	//å°èœœèœ‚Yè½´çš„ç§»åŠ¨é€Ÿåº¦åˆå§‹åŒ–
+		this.awardType = ran.nextInt(101);	//å°†awardTypeçš„å€¼éšæœºèµ‹å€¼ä¸º0~100
 		
 	}
 	
-	/*ÖØĞ´³¬Àà·½·¨£¬Ğ¡ÃÛ·äÒÆ¶¯·½·¨*/
+	/*é‡å†™è¶…ç±»æ–¹æ³•ï¼Œå°èœœèœ‚ç§»åŠ¨æ–¹æ³•*/
 	public void step() {
 		
-		if(ranX == 0) {	//ÅĞ¶Ï³õÊ¼ÒÆ¶¯·½Ïò
+		if(ranX == 0) {	//åˆ¤æ–­åˆå§‹ç§»åŠ¨æ–¹å‘
 			
-			this.x += this.xSpeed;	//Ğ¡ÃÛ·äÏòÓÒÒÆ¶¯
+			this.x += this.xSpeed;	//å°èœœèœ‚å‘å³ç§»åŠ¨
 			
 		}else {
 			
-			this.x -= this.xSpeed;	//Ğ¡ÃÛ·äÏò×óÒÆ¶¯
+			this.x -= this.xSpeed;	//å°èœœèœ‚å‘å·¦ç§»åŠ¨
 			
 		}
-		this.y += ySpeed;	//Ğ¡ÃÛ·ä¸ù¾İÒÆ¶¯ËÙ¶ÈÏòÏÂÒÆ¶¯
+		this.y += ySpeed;	//å°èœœèœ‚æ ¹æ®ç§»åŠ¨é€Ÿåº¦å‘ä¸‹ç§»åŠ¨
 		
-		/*ÅĞ¶ÏĞ¡ÃÛ·äÊÇ·ñÅöµ½´°¿Ú±ßÔµ*/
+		/*åˆ¤æ–­å°èœœèœ‚æ˜¯å¦ç¢°åˆ°çª—å£è¾¹ç¼˜*/
 		if(this.x <= 0 || this.x >= World.WIDTH - this.width) {
 			
-			this.xSpeed *= -1;	//½«xÖáÒÆ¶¯·½ÏòÉèÖÃÎª·´·½Ïò
+			this.xSpeed *= -1;	//å°†xè½´ç§»åŠ¨æ–¹å‘è®¾ç½®ä¸ºåæ–¹å‘
 			
 		}
 		
 	}
 	
-	private int index = 1;//¸øgetImages·½·¨Ê¹ÓÃµÄ±äÁ¿
-	/*ÖØĞ´³¬Àà·½·¨£¬»ñÈ¡Ğ¡ÃÛ·äÍ¼Æ¬*/
+	private int index = 1;//ç»™getImagesæ–¹æ³•ä½¿ç”¨çš„å˜é‡
+	/*é‡å†™è¶…ç±»æ–¹æ³•ï¼Œè·å–å°èœœèœ‚å›¾ç‰‡*/
 	public BufferedImage getImages() {
 
-		if(isLife()) {	//ÅĞ¶ÏÈô»î×ÅµÄ£¬Ö±½Ó·µ»Øbees[0]¼´¿É
+		if(isLife()) {	//åˆ¤æ–­è‹¥æ´»ç€çš„ï¼Œç›´æ¥è¿”å›bees[0]å³å¯
 			
-			return Images.bees[0];		//¼ÓÔØImagesÀàÖĞ¶ÁÈ¡µ½µÄĞ¡ÃÛ·äÍ¼Æ¬
+			return Images.bees[0];		//åŠ è½½Imagesç±»ä¸­è¯»å–åˆ°çš„å°èœœèœ‚å›¾ç‰‡
 			
-		}else if(isDead()) {	//ÈôËÀÁË£¬·µ»Ø±¬Õ¨Í¼Æ¬1-4£¬µÚ4ÕÅºó·µ»Ø¿ÕÍ¼Æ¬
+		}else if(isDead()) {	//è‹¥æ­»äº†ï¼Œè¿”å›çˆ†ç‚¸å›¾ç‰‡1-4ï¼Œç¬¬4å¼ åè¿”å›ç©ºå›¾ç‰‡
 			
-			BufferedImage img = Images.bees[index++];	//¼ÓÔØImagesÀàÖĞ¶ÁÈ¡µ½µÄ±¬Õ¨Í¼Æ¬£¬index = 1.2.3.4
-			if(index == Images.bees.length) {	//index = 2.3.4.5£¬µ±Ëûµ½5Ê±½«state×´Ì¬ÉèÖÃÎªREMOVE£¬ÕâÑùÏÂ´Î¾Í²»»á½øÈëµ½´ËifÖĞ
+			BufferedImage img = Images.bees[index++];	//åŠ è½½Imagesç±»ä¸­è¯»å–åˆ°çš„çˆ†ç‚¸å›¾ç‰‡ï¼Œindex = 1.2.3.4
+			if(index == Images.bees.length) {	//index = 2.3.4.5ï¼Œå½“ä»–åˆ°5æ—¶å°†stateçŠ¶æ€è®¾ç½®ä¸ºREMOVEï¼Œè¿™æ ·ä¸‹æ¬¡å°±ä¸ä¼šè¿›å…¥åˆ°æ­¤ifä¸­
 				state = REMOVE;
 			}
-			return img;	//·µ»Ø±¬Õ¨Í¼Æ¬1-4
+			return img;	//è¿”å›çˆ†ç‚¸å›¾ç‰‡1-4
 			
 		}
 		
-		return null;	//·µ»Ø¿ÕÍ¼Æ¬
+		return null;	//è¿”å›ç©ºå›¾ç‰‡
 		
 	}
 
-	/*·µ»Ø½±ÀøÀàĞÍ*/
+	/*è¿”å›å¥–åŠ±ç±»å‹*/
 	public int getAwardType() {
 
 		return awardType;

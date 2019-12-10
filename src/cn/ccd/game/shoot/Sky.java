@@ -3,53 +3,53 @@ package cn.ccd.game.shoot;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-/**Ìì¿Õ±³¾°*/
+/**å¤©ç©ºèƒŒæ™¯*/
 public class Sky extends FlyingObject{
 
-	private int speed;	//Ìì¿Õ±³¾°ÒÆ¶¯ËÙ¶È
-	private int y2;	//Ìì¿Õ±³¾°µÚ¶şÕÅ×ø±ê
+	private int speed;	//å¤©ç©ºèƒŒæ™¯ç§»åŠ¨é€Ÿåº¦
+	private int y2;	//å¤©ç©ºèƒŒæ™¯ç¬¬äºŒå¼ åæ ‡
 
-	/*Ìì¿Õ±³¾°¹¹ÔìÆ÷*/
+	/*å¤©ç©ºèƒŒæ™¯æ„é€ å™¨*/
 	public Sky() {	
 
-		super(World.WIDTH, World.HEIGHT, 0, 0);	//Ìì¿ÕÊı¾İ³õÊ¼»¯
-		this.speed = 1;	//Ìì¿Õ±³¾°ÒÆ¶¯ËÙ¶È³õÊ¼»¯
-		this.y2 = -this.height;	//Ìì¿ÕµÚ¶şÕÅ±³¾°×ø±êÉú³ÉÔÚµÚÒ»ÕÅµÄÉÏÃæ
+		super(World.WIDTH, World.HEIGHT, 0, 0);	//å¤©ç©ºæ•°æ®åˆå§‹åŒ–
+		this.speed = 1;	//å¤©ç©ºèƒŒæ™¯ç§»åŠ¨é€Ÿåº¦åˆå§‹åŒ–
+		this.y2 = -this.height;	//å¤©ç©ºç¬¬äºŒå¼ èƒŒæ™¯åæ ‡ç”Ÿæˆåœ¨ç¬¬ä¸€å¼ çš„ä¸Šé¢
 
 	}
 
-	/*ÖØĞ´³¬Àà·½·¨£¬Ìì¿Õ±³¾°ÒÆ¶¯·½·¨*/
+	/*é‡å†™è¶…ç±»æ–¹æ³•ï¼Œå¤©ç©ºèƒŒæ™¯ç§»åŠ¨æ–¹æ³•*/
 	public void step() {
 
-		this.y += speed;	//Ìì¿Õ±³¾°1¸ù¾İÒÆ¶¯ËÙ¶ÈÏòÏÂÒÆ¶¯
-		this.y2 += speed;	//Ìì¿Õ±³¾°2¸ù¾İÒÆ¶¯ËÙ¶ÈÏòÏÂÒÆ¶¯
+		this.y += speed;	//å¤©ç©ºèƒŒæ™¯1æ ¹æ®ç§»åŠ¨é€Ÿåº¦å‘ä¸‹ç§»åŠ¨
+		this.y2 += speed;	//å¤©ç©ºèƒŒæ™¯2æ ¹æ®ç§»åŠ¨é€Ÿåº¦å‘ä¸‹ç§»åŠ¨
 		
-		if(y >= World.HEIGHT) {	//Èç¹ûÌì¿Õ±³¾°1µÄÒÆ¶¯µ½´°¿ÚÍâ£¬ÔòÈÃËüÖØĞÂ»Øµ½×îÉÏ·½
+		if(y >= World.HEIGHT) {	//å¦‚æœå¤©ç©ºèƒŒæ™¯1çš„ç§»åŠ¨åˆ°çª—å£å¤–ï¼Œåˆ™è®©å®ƒé‡æ–°å›åˆ°æœ€ä¸Šæ–¹
 			
-			y = -World.HEIGHT;	//Éè¶¨Ìì¿Õ1±³¾°»Øµ½×îÉÏ·½
+			y = -World.HEIGHT;	//è®¾å®šå¤©ç©º1èƒŒæ™¯å›åˆ°æœ€ä¸Šæ–¹
 			
 		}
 		
-		if(y2 >= World.HEIGHT) {	//Èç¹ûÌì¿Õ±³¾°2µÄÒÆ¶¯µ½´°¿ÚÍâ£¬ÔòÈÃËüÖØĞÂ»Øµ½×îÉÏ·½
+		if(y2 >= World.HEIGHT) {	//å¦‚æœå¤©ç©ºèƒŒæ™¯2çš„ç§»åŠ¨åˆ°çª—å£å¤–ï¼Œåˆ™è®©å®ƒé‡æ–°å›åˆ°æœ€ä¸Šæ–¹
 			
-			y2 = -World.HEIGHT;	//Éè¶¨Ìì¿Õ2±³¾°»Øµ½×îÉÏ·½
+			y2 = -World.HEIGHT;	//è®¾å®šå¤©ç©º2èƒŒæ™¯å›åˆ°æœ€ä¸Šæ–¹
 			
 		}
 
 	}
 
-	/*ÖØĞ´³¬Àà·½·¨£¬»ñÈ¡Ìì¿ÕÍ¼Æ¬*/
+	/*é‡å†™è¶…ç±»æ–¹æ³•ï¼Œè·å–å¤©ç©ºå›¾ç‰‡*/
 	public BufferedImage getImages() {
 
-		return Images.sky;	//¼ÓÔØImagesÀàÖĞ¶ÁÈ¡µ½µÄÌì¿Õ±³¾°Í¼Æ¬
+		return Images.sky;	//åŠ è½½Imagesç±»ä¸­è¯»å–åˆ°çš„å¤©ç©ºèƒŒæ™¯å›¾ç‰‡
 
 	}
 
-	/*ÖØĞ´³¬Àà·½·¨	»­Ìì¿Õ*/
+	/*é‡å†™è¶…ç±»æ–¹æ³•	ç”»å¤©ç©º*/
 	public void paintObject(Graphics g) {
 
-		g.drawImage(this.getImages(), this.x, this.y, null);	//»­Ìì¿ÕµÚÒ»ÕÅ
-		g.drawImage(this.getImages(), this.x, this.y2, null);	//»­Ìì¿ÕµÚ¶şÕÅ
+		g.drawImage(this.getImages(), this.x, this.y, null);	//ç”»å¤©ç©ºç¬¬ä¸€å¼ 
+		g.drawImage(this.getImages(), this.x, this.y2, null);	//ç”»å¤©ç©ºç¬¬äºŒå¼ 
 
 	}
 

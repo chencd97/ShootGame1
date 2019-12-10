@@ -4,100 +4,100 @@ import java.awt.Graphics;
 import java.util.Random;
 import java.awt.image.BufferedImage;
 
-/**³¬Àà*/
+/**è¶…ç±»*/
 public abstract class FlyingObject {
 
-	protected static final int LIFE = 0;	//ÉèÖÃÎïÌå ´æÔÚ(»î×Å) Ê±µÄÖµ
-	protected static final int DEAD = 1;	//ÉèÖÃÎïÌå ËÀÍö(»òÕýÔÚËÀÍö) Ê±µÄÖµ
-	protected static final int REMOVE = 2;	//ÉèÖÃÎïÌå ËÀÍöºó Ê±µÄÖµ
+	protected static final int LIFE = 0;	//è®¾ç½®ç‰©ä½“ å­˜åœ¨(æ´»ç€) æ—¶çš„å€¼
+	protected static final int DEAD = 1;	//è®¾ç½®ç‰©ä½“ æ­»äº¡(æˆ–æ­£åœ¨æ­»äº¡) æ—¶çš„å€¼
+	protected static final int REMOVE = 2;	//è®¾ç½®ç‰©ä½“ æ­»äº¡åŽ æ—¶çš„å€¼
 
-	protected int state = LIFE;	///ÉèÖÃÎïÌå µ±Ç° ×´Ì¬Öµ(Ä¬ÈÏÎª»î×Å)
+	protected int state = LIFE;	///è®¾ç½®ç‰©ä½“ å½“å‰ çŠ¶æ€å€¼(é»˜è®¤ä¸ºæ´»ç€)
 
-	protected int width;	//ËùÓÐ¶ÔÏó-¿í
-	protected int height;	//ËùÓÐ¶ÔÏó-¸ß
-	protected int x;	//ËùÓÐ¶ÔÏó-xÖá
-	protected int y;	//ËùÓÐ¶ÔÏó-yÖá
+	protected int width;	//æ‰€æœ‰å¯¹è±¡-å®½
+	protected int height;	//æ‰€æœ‰å¯¹è±¡-é«˜
+	protected int x;	//æ‰€æœ‰å¯¹è±¡-xè½´
+	protected int y;	//æ‰€æœ‰å¯¹è±¡-yè½´
 
-	/*³¬Àà¹¹ÔìÆ÷1£º½öÌá¹©¸øÌì¿Õ£¬Ó¢ÐÛ»ú£¬×Óµ¯Ê¹ÓÃ*/
-	public FlyingObject(int width, int height, int x, int y) {	//ÐèÒª¶ÔÏó´«²ÎÊ¹ÓÃ
+	/*è¶…ç±»æž„é€ å™¨1ï¼šä»…æä¾›ç»™å¤©ç©ºï¼Œè‹±é›„æœºï¼Œå­å¼¹ä½¿ç”¨*/
+	public FlyingObject(int width, int height, int x, int y) {	//éœ€è¦å¯¹è±¡ä¼ å‚ä½¿ç”¨
 
-		this.width = width;	//³õÊ¼¿íÓÉÅÉÉúÀà¶ÔÏó³õÊ¼»¯
-		this.height = height;	//³õÊ¼¸ßÓÉÅÉÉúÀà¶ÔÏó³õÊ¼»¯
-		this.x = x;	//³õÊ¼XÖáÓÉÅÉÉúÀà¶ÔÏó³õÊ¼»¯
-		this.y = y;	//³õÊ¼YÖáÓÉÅÉÉúÀà¶ÔÏó³õÊ¼»¯
-
-	}
-
-	/*³¬Àà¹¹ÔìÆ÷2£º½öÌá¹©¸øµÐ»úÊ¹ÓÃ*/
-	public FlyingObject(int width, int height) {	//ÐèÒª¶ÔÏó´«²ÎÊ¹ÓÃ
-
-		this.width = width;	//³õÊ¼¿íÓÉÅÉÉúÀà¶ÔÏó³õÊ¼»¯
-		this.height = height;	//³õÊ¼¸ßÓÉÅÉÉúÀà¶ÔÏó³õÊ¼»¯
-		Random ran = new Random();	//ÉêÇëËæ»úÈ¨ÏÞ
-		this.x = ran.nextInt(World.WIDTH-this.width);	//³õÊ¼XÖáÎ»ÖÃ¹Ì¶¨ÓÉÏµÍ³×Ô¶¯Éú³É
-		this.y = -this.height;	//³õÊ¼YÖáÎ»ÖÃÓÉ³¬Àà¹Ì¶¨Éú³É
+		this.width = width;	//åˆå§‹å®½ç”±æ´¾ç”Ÿç±»å¯¹è±¡åˆå§‹åŒ–
+		this.height = height;	//åˆå§‹é«˜ç”±æ´¾ç”Ÿç±»å¯¹è±¡åˆå§‹åŒ–
+		this.x = x;	//åˆå§‹Xè½´ç”±æ´¾ç”Ÿç±»å¯¹è±¡åˆå§‹åŒ–
+		this.y = y;	//åˆå§‹Yè½´ç”±æ´¾ç”Ÿç±»å¯¹è±¡åˆå§‹åŒ–
 
 	}
 
-	/*·ÉÐÐÎïÒÆ¶¯²âÊÔ£¬ÐèÓÉ×ÓÀàÖØÐ´£¬ËùÒÔÉè¼ÆÎª³éÏó·½·¨*/
+	/*è¶…ç±»æž„é€ å™¨2ï¼šä»…æä¾›ç»™æ•Œæœºä½¿ç”¨*/
+	public FlyingObject(int width, int height) {	//éœ€è¦å¯¹è±¡ä¼ å‚ä½¿ç”¨
+
+		this.width = width;	//åˆå§‹å®½ç”±æ´¾ç”Ÿç±»å¯¹è±¡åˆå§‹åŒ–
+		this.height = height;	//åˆå§‹é«˜ç”±æ´¾ç”Ÿç±»å¯¹è±¡åˆå§‹åŒ–
+		Random ran = new Random();	//ç”³è¯·éšæœºæƒé™
+		this.x = ran.nextInt(World.WIDTH-this.width);	//åˆå§‹Xè½´ä½ç½®å›ºå®šç”±ç³»ç»Ÿè‡ªåŠ¨ç”Ÿæˆ
+		this.y = -this.height;	//åˆå§‹Yè½´ä½ç½®ç”±è¶…ç±»å›ºå®šç”Ÿæˆ
+
+	}
+
+	/*é£žè¡Œç‰©ç§»åŠ¨æµ‹è¯•ï¼Œéœ€ç”±å­ç±»é‡å†™ï¼Œæ‰€ä»¥è®¾è®¡ä¸ºæŠ½è±¡æ–¹æ³•*/
 	public abstract void step();
 
-	/*ÅÐ¶Ï·ÉÐÐÎïµ±Ç°×´Ì¬·½·¨(´æÔÚ/´æ»î/»îµÄ)*/
+	/*åˆ¤æ–­é£žè¡Œç‰©å½“å‰çŠ¶æ€æ–¹æ³•(å­˜åœ¨/å­˜æ´»/æ´»çš„)*/
 	public boolean isLife() {
 
-		return state == LIFE;	//ÅÐ¶ÏstateµÄÖµÊÇ·ñÎªLIFE
+		return state == LIFE;	//åˆ¤æ–­stateçš„å€¼æ˜¯å¦ä¸ºLIFE
 
 	}
 
-	/*ÅÐ¶Ï·ÉÐÐÎïµ±Ç°×´Ì¬·½·¨(ËÀÍö/ËÀÍöÖÐ)*/
+	/*åˆ¤æ–­é£žè¡Œç‰©å½“å‰çŠ¶æ€æ–¹æ³•(æ­»äº¡/æ­»äº¡ä¸­)*/
 	public boolean isDead() {
 
-		return state == DEAD;	//ÅÐ¶ÏstateµÄÖµÊÇ·ñÎªDEAD
+		return state == DEAD;	//åˆ¤æ–­stateçš„å€¼æ˜¯å¦ä¸ºDEAD
 
 	}
 
-	/*ÅÐ¶Ï·ÉÐÐÎïµ±Ç°×´Ì¬·½·¨(ÒÑËÀÍö¾Í½«Ëü±ê¼ÇÎªÉ¾³ý)*/
+	/*åˆ¤æ–­é£žè¡Œç‰©å½“å‰çŠ¶æ€æ–¹æ³•(å·²æ­»äº¡å°±å°†å®ƒæ ‡è®°ä¸ºåˆ é™¤)*/
 	public boolean isRemove() {
 
-		return state == REMOVE;	//ÅÐ¶ÏstateµÄÖµÊÇ·ñÎªREMOVE
+		return state == REMOVE;	//åˆ¤æ–­stateçš„å€¼æ˜¯å¦ä¸ºREMOVE
 
 	}
 
-	/*»ñÈ¡ÓÉImagesÀà¶ÁÈ¡µ½µÄÍ¼Æ¬£¬ÓÉÓÚÃ¿¸ö¶ÔÏó»ñÈ¡µÄÍ¼Æ¬ÄÚÈÝ²»Ò»ÑùËùÒÔÉè¼Æ³É³éÏó·½·¨*/
+	/*èŽ·å–ç”±Imagesç±»è¯»å–åˆ°çš„å›¾ç‰‡ï¼Œç”±äºŽæ¯ä¸ªå¯¹è±¡èŽ·å–çš„å›¾ç‰‡å†…å®¹ä¸ä¸€æ ·æ‰€ä»¥è®¾è®¡æˆæŠ½è±¡æ–¹æ³•*/
 	public abstract BufferedImage getImages();
 
-	/*»­¶ÔÏó£¬ÓÉÓÚÃ¿¸ö¶ÔÏó»­µÄ·½Ê½Ò»ÑùËùÒÔÉèÖÃÎªÆÕÍ¨·½·¨(³ýÌì¿ÕÍâ)	¡¾***¡¿*/
+	/*ç”»å¯¹è±¡ï¼Œç”±äºŽæ¯ä¸ªå¯¹è±¡ç”»çš„æ–¹å¼ä¸€æ ·æ‰€ä»¥è®¾ç½®ä¸ºæ™®é€šæ–¹æ³•(é™¤å¤©ç©ºå¤–)	ã€***ã€‘*/
 	public void paintObject(Graphics g) {
 
 		g.drawImage(this.getImages(), this.x, this.y, null);
 
 	}
 	
-	/*ÅÐ¶Ï·ÉÐÐÎïÊÇ·ñ³ö½ç*/
+	/*åˆ¤æ–­é£žè¡Œç‰©æ˜¯å¦å‡ºç•Œ*/
 	public boolean outOfBounds() {
 		
-		return this.y > World.HEIGHT;	//Èç¹û·ÉÐÐÎïµÄYÖáÊýÖµ³¬¹ýÁË´°¿ÚµÄ×î´óÖµÔòÅÐ¶ÏÎª³ö½ç
+		return this.y > World.HEIGHT;	//å¦‚æžœé£žè¡Œç‰©çš„Yè½´æ•°å€¼è¶…è¿‡äº†çª—å£çš„æœ€å¤§å€¼åˆ™åˆ¤æ–­ä¸ºå‡ºç•Œ
 		
 	}
 
-	/*×Óµ¯¡¢Ó¢ÐÛ»úÓëµÐ»úÅö×²¼ì²â*/
+	/*å­å¼¹ã€è‹±é›„æœºä¸Žæ•Œæœºç¢°æ’žæ£€æµ‹*/
 	public boolean hit(FlyingObject other) {
 		
-		/*Éè¶¨ÅÐ¶Ï·¶Î§*/
+		/*è®¾å®šåˆ¤æ–­èŒƒå›´*/
 		int x1 = this.x - other.width;
 		int x2 = this.x + this.width;
 		int y1 = this.y - other.height;
 		int y2 = this.y + this.height;
 		
-		/*returnÅÐ¶Ï½á¹û*/
+		/*returnåˆ¤æ–­ç»“æžœ*/
 		return other.x >= x1 && other.x <= x2 && other.y >= y1 && other.y <= y2;
 		
 	}
 	
-	/*Éè¶¨·ÉÐÐÎï×´Ì¬Îª ËÀÍö/ËÀÍöÖÐ*/
+	/*è®¾å®šé£žè¡Œç‰©çŠ¶æ€ä¸º æ­»äº¡/æ­»äº¡ä¸­*/
 	public void goDead() {
 		
-		this.state = DEAD;	//Éè¶¨·ÉÐÐÎï×´Ì¬Îª ËÀÍö/ËÀÍöÖÐ ×´Ì¬
+		this.state = DEAD;	//è®¾å®šé£žè¡Œç‰©çŠ¶æ€ä¸º æ­»äº¡/æ­»äº¡ä¸­ çŠ¶æ€
 		
 	}
 	

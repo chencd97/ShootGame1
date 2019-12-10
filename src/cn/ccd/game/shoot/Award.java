@@ -1,12 +1,12 @@
 package cn.ccd.game.shoot;
 
-/**½±Àø½Ó¿Ú*/
+/**å¥–åŠ±æ¥å£*/
 public interface Award {
 	
-//	public static final int LIFE = 0;	//Îª1Ê±½±ÀøÉúÃüÊıÁ¿
-//	public static final int DOUBLE_Fire = 1;	//Îª2Ê±½±Àø»ğÁ¦Öµ
+//	public static final int LIFE = 0;	//ä¸º1æ—¶å¥–åŠ±ç”Ÿå‘½æ•°é‡
+//	public static final int DOUBLE_Fire = 1;	//ä¸º2æ—¶å¥–åŠ±ç«åŠ›å€¼
 	
-	/*ÅĞ¶Ï½±ÀøÀàĞÍ£¬ĞèÒª×ÓÀàÖØĞ´*/
+	/*åˆ¤æ–­å¥–åŠ±ç±»å‹ï¼Œéœ€è¦å­ç±»é‡å†™*/
 	public abstract int getAwardType();
 
 }

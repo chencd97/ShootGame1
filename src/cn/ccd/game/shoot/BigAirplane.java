@@ -2,49 +2,49 @@ package cn.ccd.game.shoot;
 
 import java.awt.image.BufferedImage;
 
-/**´óµĞ»ú*/
+/**å¤§æ•Œæœº*/
 public class BigAirplane extends FlyingObject implements Enemy{
 	
-	private int speed;	//´óµĞ»úÒÆ¶¯ËÙ¶È
+	private int speed;	//å¤§æ•Œæœºç§»åŠ¨é€Ÿåº¦
 	
-	/*´óµĞ»ú¹¹ÔìÆ÷*/
+	/*å¤§æ•Œæœºæ„é€ å™¨*/
 	public BigAirplane() {
 		
-		super(69, 99);	//´óµĞ»úÊı¾İ³õÊ¼»¯
-		this.speed = 2;	//´óµĞ»úÒÆ¶¯ËÙ¶È³õÊ¼»¯
+		super(69, 99);	//å¤§æ•Œæœºæ•°æ®åˆå§‹åŒ–
+		this.speed = 2;	//å¤§æ•Œæœºç§»åŠ¨é€Ÿåº¦åˆå§‹åŒ–
 		
 	}
 	
-	/*ÖØĞ´³¬Àà·½·¨£¬´óµĞ»úÒÆ¶¯·½·¨*/
+	/*é‡å†™è¶…ç±»æ–¹æ³•ï¼Œå¤§æ•Œæœºç§»åŠ¨æ–¹æ³•*/
 	public void step() {
 		
-		this.y += this.speed;	//´óµĞ»ú¸ù¾İÒÆ¶¯ËÙ¶ÈÏòÏÂÒÆ¶¯
+		this.y += this.speed;	//å¤§æ•Œæœºæ ¹æ®ç§»åŠ¨é€Ÿåº¦å‘ä¸‹ç§»åŠ¨
 		
 	}
 	
-	private int index = 1;//¸øgetImages·½·¨Ê¹ÓÃµÄ±äÁ¿
-	/*ÖØĞ´³¬Àà·½·¨£¬»ñÈ¡´óµĞ»úÍ¼Æ¬*/
+	private int index = 1;//ç»™getImagesæ–¹æ³•ä½¿ç”¨çš„å˜é‡
+	/*é‡å†™è¶…ç±»æ–¹æ³•ï¼Œè·å–å¤§æ•Œæœºå›¾ç‰‡*/
 	public BufferedImage getImages() {
 
-		if(isLife()) {	//ÅĞ¶ÏÈô»î×ÅµÄ£¬Ö±½Ó·µ»ØbigAirplanes[0]¼´¿É
+		if(isLife()) {	//åˆ¤æ–­è‹¥æ´»ç€çš„ï¼Œç›´æ¥è¿”å›bigAirplanes[0]å³å¯
 			
-			return Images.bigAirplanes[0];		//¼ÓÔØImagesÀàÖĞ¶ÁÈ¡µ½µÄ´óµĞ»úÍ¼Æ¬
+			return Images.bigAirplanes[0];		//åŠ è½½Imagesç±»ä¸­è¯»å–åˆ°çš„å¤§æ•Œæœºå›¾ç‰‡
 			
-		}else if(isDead()) {	//ÈôËÀÁË£¬·µ»Ø±¬Õ¨Í¼Æ¬1-4£¬µÚ4ÕÅºó·µ»Ø¿ÕÍ¼Æ¬
+		}else if(isDead()) {	//è‹¥æ­»äº†ï¼Œè¿”å›çˆ†ç‚¸å›¾ç‰‡1-4ï¼Œç¬¬4å¼ åè¿”å›ç©ºå›¾ç‰‡
 			
-			BufferedImage img = Images.bigAirplanes[index++];	//¼ÓÔØImagesÀàÖĞ¶ÁÈ¡µ½µÄ±¬Õ¨Í¼Æ¬£¬index = 1.2.3.4
-			if(index == Images.bigAirplanes.length) {	//index = 2.3.4.5£¬µ±Ëûµ½5Ê±½«state×´Ì¬ÉèÖÃÎªREMOVE£¬ÕâÑùÏÂ´Î¾Í²»»á½øÈëµ½´ËifÖĞ
+			BufferedImage img = Images.bigAirplanes[index++];	//åŠ è½½Imagesç±»ä¸­è¯»å–åˆ°çš„çˆ†ç‚¸å›¾ç‰‡ï¼Œindex = 1.2.3.4
+			if(index == Images.bigAirplanes.length) {	//index = 2.3.4.5ï¼Œå½“ä»–åˆ°5æ—¶å°†stateçŠ¶æ€è®¾ç½®ä¸ºREMOVEï¼Œè¿™æ ·ä¸‹æ¬¡å°±ä¸ä¼šè¿›å…¥åˆ°æ­¤ifä¸­
 				state = REMOVE;
 			}
-			return img;	//·µ»Ø±¬Õ¨Í¼Æ¬1-4
+			return img;	//è¿”å›çˆ†ç‚¸å›¾ç‰‡1-4
 			
 		}
 		
-		return null;	//·µ»Ø¿ÕÍ¼Æ¬
+		return null;	//è¿”å›ç©ºå›¾ç‰‡
 		
 	}
 
-	/*·µ»ØµÃ·Ö*/
+	/*è¿”å›å¾—åˆ†*/
 	public int getScore() {
 
 		return 3;

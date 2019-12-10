@@ -1,9 +1,9 @@
 package cn.ccd.game.shoot;
 
-/**¼Ó·Ö½Ó¿Ú*/
+/**åŠ åˆ†æ¥å£*/
 public interface Enemy {
 	
-	/*¼Ó·Ö·½·¨£¬ĞèÒª×ÓÀàÖØĞ´*/
+	/*åŠ åˆ†æ–¹æ³•ï¼Œéœ€è¦å­ç±»é‡å†™*/
 	public abstract int getScore();
 
 }
